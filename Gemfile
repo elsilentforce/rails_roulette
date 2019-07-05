@@ -48,4 +48,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.25.0'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
