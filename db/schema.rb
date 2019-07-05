@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20190703161618) do
   create_table "matches", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "game_id"
+    t.integer  "bet",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20190703161618) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                          null: false
-    t.string   "current_credits", default: "10000"
+    t.string   "current_credits", default: "10000", null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
