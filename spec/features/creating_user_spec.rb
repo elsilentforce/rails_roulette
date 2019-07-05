@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Creating User:" do
-  let (:test_user) { FactoryGirl.build(:user) }
+  let (:test_user) { FactoryBot.build(:user) }
 
   scenario "Someone creates a new User" do
     visit "/"

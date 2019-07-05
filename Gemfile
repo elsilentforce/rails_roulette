@@ -52,6 +52,6 @@ end
 group :test do
   gem 'capybara', '~> 3.25.0'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
 end
