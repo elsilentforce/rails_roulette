@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20190703161618) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches", force: :cascade do |t|
+  create_table "rounds", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "game_id"
     t.integer  "bet",        null: false
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20190703161618) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "matches", ["game_id"], name: "index_matches_on_game_id", using: :btree
-  add_index "matches", ["user_id"], name: "index_matches_on_user_id", using: :btree
+  add_index "rounds", ["game_id"], name: "index_rounds_on_game_id", using: :btree
+  add_index "rounds", ["user_id"], name: "index_rounds_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                          null: false
@@ -41,6 +41,6 @@ ActiveRecord::Schema.define(version: 20190703161618) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  add_foreign_key "matches", "games"
-  add_foreign_key "matches", "users"
+  add_foreign_key "rounds", "games"
+  add_foreign_key "rounds", "users"
 end

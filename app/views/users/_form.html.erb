@@ -4,6 +4,11 @@
     <%= f.text_field :username %>
   </div>
 
+  <div class="">
+    <%= f.label :current_credits %>
+    <%= f.number_field :current_credits %>
+  </div>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
