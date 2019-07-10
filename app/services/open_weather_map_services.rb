@@ -25,4 +25,12 @@ class OpenWeatherMapServices
     response = Typhoeus.get(url, params: options, followlocation: true)
     JSON.parse(response.body) rescue []
   end
+
+  def will_rain_next_week?
+    rain_flag = false
+    forecast['list'].each do |f|
+      rain_flag = true if f['weather'][0]['main'].eql? "Rain"
+    end
+    rain_flag
+  end
 end
