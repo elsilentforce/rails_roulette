@@ -13,11 +13,14 @@ services:
   web:
     stdin_open: true
     tty: true
-    build: .
-    volumes:
-      - .:/app
+    build:
+      context: .
+      dockerfile: .docker/dev.dockerfile
     ports:
       - 3000:3000
     depends_on:
       - db
     env_file: .env
+    # volumes:
+    #   - .:/app
+    command: bundle exec rails server -b '0.0.0.0'
