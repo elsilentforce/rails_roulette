@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def bet_on_round id
+    bets.where("round_id=#{id}").first
+  end
+
   def self.grant_daily_bonus
     self.transaction do
       all.each do |user|
