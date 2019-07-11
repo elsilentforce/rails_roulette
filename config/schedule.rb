@@ -18,11 +18,16 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+require File.expand_path(File.dirname(__FILE__) + '/environment')
+env :PATH, ENV['PATH']
+env :GEM_PATH, ENV['GEM_PATH']
+set :output, {:standard => 'log/cron_log.log', :error => 'log/cron_error_log.log'}
+env :PATH, ENV['PATH']
 
-every 3.minutes do
+every 1.minute do
   runner "Round.play"
 end
 
-every 1.day, at: '0:00 am' do
+every 1.day, at: "00:00 am" do
   runner "User.grant_daily_bonus"
 end
