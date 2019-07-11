@@ -8,7 +8,8 @@ The following application simulates a simple Roulette. Is has been developed usi
 * If a User has 1000 credits or less, it bets all on the current Round
 
 ## System requeriments
-This project has been made to run on UNIX systems, to run it you need `ruby@2.6.3` and `rails@4.2.11`
+This project has been made to run on UNIX systems, to run it you need active Internet Connection, `ruby@2.6.3` and `rails@4.2.11`.
+It also uses `cron` to run process in background, to do the trick the project uses `whenever` gem.
 
 ## Set up
 To start de project you must execute the following commands:
