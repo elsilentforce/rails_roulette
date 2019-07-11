@@ -20,8 +20,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def grant_daily_bonus
-    self.update(credits: (self.credits + 10000) )
+  def self.grant_daily_bonus
+    self.transaction do
+      all.each do |user|
+        user.update(credits: (user.credits + 10000) )
+      end
+    end
   end
 
 
