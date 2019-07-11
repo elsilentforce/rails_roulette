@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   has_many :bets
   has_many :rounds, through: :bets
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true,  length: { in: 3..255 }, uniqueness: true
+  validates :credits, numericality: { greater_than_or_equal_to: 0 }
 
   # Sets current bet according to weather
   def set_current_bet
