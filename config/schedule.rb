@@ -20,9 +20,9 @@
 # Learn more: http://github.com/javan/whenever
 
 every 3.minutes do
-  Round.play
+  runner "Round.play"
 end
 
 every 1.day, at: '0:00 am' do
-  User.grant_daily_bonus
+  runner "User.grant_daily_bonus"
 end
