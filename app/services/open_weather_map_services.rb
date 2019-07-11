@@ -8,7 +8,7 @@ class OpenWeatherMapServices
   def initialize options = {}
     @url = 'https://api.openweathermap.org/data/2.5'
     @city = options[:city]
-    @appid = ENV["OPENWEATHER_API_KEY"]
+    @appid = 'fa3df9bff4314e742477148a1cd2c73b'
     @cnt = options[:cnt] || 7
   end
 
