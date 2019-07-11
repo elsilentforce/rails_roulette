@@ -1,31 +1,28 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Rails Roulette
+The following application simulates a simple Roulette. Is has been developed using Ruby on Rails, Rspec & Capybara
 
-Things you may want to cover:
+## Rules
+* Every new player starts with 10.000 credits
+* A round automatically starts every 3 minutes
+* The bets may vary according to the weather
 
-* Ruby version
+## System requeriments
+This project has been made to run on UNIX systems, to run it you need `ruby@2.6.3` and `rails@4.2.11`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-
+## Set up
+To start de project you must execute the following commands:
+```
+bundle install
+rake db:create
+rake db:migrate
 whenever --set 'environment=development' --update-crontab
+```
+Then you will be able to access to the app in: ['http://localhost:3000'](http://localhost:3000)
+
+* Testing
+You can run tests for this app executing:
+```
+bundle exec rspec
+```
