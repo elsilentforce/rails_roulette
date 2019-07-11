@@ -6,7 +6,7 @@ class Round < ActiveRecord::Base
 
   def self.play
 
-    Round.transaction do
+    self.transaction do
       winner_color = self.set_color # Roulette result
       user_bet_color = User.set_color # User bet
       match_multiplier = set_multiplier(winner_color)
