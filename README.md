@@ -21,6 +21,10 @@ whenever --set 'environment=development' --update-crontab
 ```
 Then you will be able to access to the app in: [http://localhost:3000](http://localhost:3000)
 
+# Users CRUD
+You can create, update, and delete users just visiting:
+[http://localhost:3000/users](http://localhost:3000/users)
+
 ## Testing
 You can run tests for this app executing:
 ```
