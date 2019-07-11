@@ -1,0 +1,11 @@
+class CreateBets < ActiveRecord::Migration
+  def change
+    create_table :bets do |t|
+      t.references :user, index: true, foreign_key: true
+      t.references :round, index: true, foreign_key: true
+      t.integer :ammount, null: false
+      t.string :target, null: false
+      t.timestamps null: false
+    end
+  end
+end

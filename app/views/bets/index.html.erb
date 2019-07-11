@@ -1,0 +1,16 @@
+<h1>Current round: <%=  @rounds.last.id %></h1>
+
+<h1>Round History</h1>
+<% @rounds.each do |round| %>
+  <hr>
+  <h4>Round ID: <%= round.id %></h4>
+  <h4>Roulette winner color: <%= round.winner %></h4>
+  <h4>Bets:</h4>
+  <ul>
+    <% Bet.by_round(round.id).each do |bet| %>
+      <li>
+        User <%= bet.user.username %> has bet: <%= bet.ammount %> on <%= bet.target %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
