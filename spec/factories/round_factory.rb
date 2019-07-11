@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :round do
-    association :user, factory: :user, strategy: :build
-    association :game, factory: :game, strategy: :build
-    bet { rand(1..10000) }
+    winner { ["Red","Green","Black"].sample }
+    # Game doesn't need any param, it's automatically filled by DB default attributes
   end
 end
