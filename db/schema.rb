@@ -16,21 +16,23 @@ ActiveRecord::Schema.define(version: 20190703161618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "games", force: :cascade do |t|
+  create_table "bets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "round_id"
+    t.integer  "ammount",    null: false
+    t.string   "target",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "bets", ["round_id"], name: "index_bets_on_round_id", using: :btree
+  add_index "bets", ["user_id"], name: "index_bets_on_user_id", using: :btree
 
   create_table "rounds", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "game_id"
-    t.integer  "bet",        null: false
+    t.string   "winner",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "rounds", ["game_id"], name: "index_rounds_on_game_id", using: :btree
-  add_index "rounds", ["user_id"], name: "index_rounds_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                   null: false
@@ -41,6 +43,6 @@ ActiveRecord::Schema.define(version: 20190703161618) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  add_foreign_key "rounds", "games"
-  add_foreign_key "rounds", "users"
+  add_foreign_key "bets", "rounds"
+  add_foreign_key "bets", "users"
 end
